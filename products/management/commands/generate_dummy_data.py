@@ -49,8 +49,11 @@ def generate_dummy_data(num_records):
     fake = Faker()
 
     for _ in range(num_records):
+        num_words = random.randint(1, 3)
+        product_name = " ".join(fake.words(nb=num_words))
+
         product = Product(
-            name=fake.unique.first_name(),
+            name=product_name,
             description=fake.text(),
             price=random.uniform(10, 1000),
             is_available=random.choice([True, False]),

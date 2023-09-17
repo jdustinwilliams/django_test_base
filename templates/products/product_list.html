@@ -1,0 +1,17 @@
+{% for product in product_list %}
+  <div>
+    <img width="100" src="{{ product.image.url }}"><br>
+    <b>Product name:</b> {{ product.name }}<br>
+    <b>Description:</b> {{ product.description }}<br>
+    <b>Price:</b> ${{ product.price }}<br>
+    <b>Available:</b> <input type="checkbox" disabled{% if product.is_available %} checked{% endif %}><br>
+    <b>Release Date:</b> {{ product.release_date }}<br>
+    <b>Rating:</b> {{ product.rating|floatformat }}<br>
+    <b>Manufacturer:</b> {{ product.manufacturer }}<br>
+    <b>Weight:</b> {{ product.weight }} lbs.<br>
+    <b>Warranty Duration:</b> {{ product.warranty_duration.days }} days<br>
+    <b>Color:</b> <span style="color: {{ product.color }};{% if product.color == 'white' %} text-shadow: 0 0 2px #000;{% endif %}">{{ product.color }}</span><br>
+    <b>Product Type:</b> {{ product.product_type }}
+  </div>
+  <hr>
+{% endfor %}

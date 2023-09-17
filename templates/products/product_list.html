@@ -3,6 +3,14 @@
 {% block heading %}{% block title %}Products{% endblock title %}{% endblock heading %}
 
 {% block content %}
+
+  <div>
+    <form method="get" action="{% url 'products' %}">
+      {{ search_form.as_p }}
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
   {% include '_pagination.html' with page_obj=page_obj %}
 
   {% for product in page_obj %}

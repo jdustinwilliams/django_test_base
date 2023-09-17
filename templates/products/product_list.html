@@ -6,10 +6,7 @@
 
   <div>
     <form method="get" action="{% url 'products' %}" class="form-inline">
-      {% for field in search_form %}
-        <label for="{{ field.auto_id }}" class="my-1">{{ field.label }}</label>
-        {{ field }}
-      {% endfor %}
+      {{ search_form }}
       <button type="submit" class="btn btn-primary my-1">Search</button>
     </form>
   </div>

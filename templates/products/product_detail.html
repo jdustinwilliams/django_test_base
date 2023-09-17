@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+{% block heading %}{% block title %}{{ product.name }}{% endblock title %}{% endblock heading %}
+
+{% block content %}
+  <div>
+    <img width="100" src="{{ product.image.url }}"><br>
+    <h2>{{ product.name }}</h2>
+    <p><b>Description:</b> {{ product.description }}</p>
+    <p><b>Price:</b> ${{ product.price }}</p>
+    <p><b>Available:</b> <input type="checkbox" disabled{% if product.is_available %} checked{% endif %}></p>
+    <p><b>Release Date:</b> {{ product.release_date }}</p>
+    <p><b>Rating:</b> {{ product.rating|floatformat }}</p>
+    <p><b>Manufacturer:</b> {{ product.manufacturer }}</p>
+    <p><b>Weight:</b> {{ product.weight }} lbs.</p>
+    <p><b>Warranty Duration:</b> {{ product.warranty_duration.days }} days</p>
+    <p><b>Color:</b> <span style="color: {{ product.color }};{% if product.color == 'white' %} text-shadow: 0 0 2px #000;{% endif %}">{{ product.color }}</span></p>
+    <p><b>Product Type:</b> {{ product.product_type }}</p>
+  </div>
+  <hr>
+{% endblock content %}

@@ -18,7 +18,8 @@
       <b>Weight:</b> {{ product.weight }} lbs.<br>
       <b>Warranty Duration:</b> {{ product.warranty_duration.days }} days<br>
       <b>Color:</b> <span style="color: {{ product.color }};{% if product.color == 'white' %} text-shadow: 0 0 2px #000;{% endif %}">{{ product.color }}</span><br>
-      <b>Product Type:</b> {{ product.product_type }}
+      <b>Product Type:</b> {{ product.product_type }}<br>
+      <a href="{% url 'product_detail' product.pk %}">View Details</a>
     </div>
     <hr>
   {% endfor %}
